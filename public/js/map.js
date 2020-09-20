@@ -1,3 +1,7 @@
+var geolocation = require("./geolocator.js");
+
+geolocation();
+
 const apikey = 'AIzaSyAlmjkWFX6IotUYg3LV2IxwrQxjQvMMRYU';
 
 //Temporary array containing test locations
@@ -25,7 +29,7 @@ function initMap() {
         document.getElementById('map'), {zoom: 4, center: locationArray[0]});
 
     // Adds marker positioned at Uluru, for test purposes
-    var marker = new google.maps.Marker({position: testArray[0], map: map});
+    var marker = new google.maps.Marker({position: locationArray[0], map: map});
 
     //Test function which places markers for every item in array
     locationArray.forEach(location=> new google.maps.Marker({position: location, map: map}));

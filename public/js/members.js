@@ -189,3 +189,39 @@ const states = [
 ];
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), states);
+
+const Zillow = require("node-zillow");
+
+const zillow = new Zillow("");
+
+const parameters = {
+  address: "2114 Bigelow Ave",
+  citystatezip: "Seattle, WA",
+  rentzestimate: false
+};
+
+zillow.get("GetSearchResults", parameters).then(results => {
+  console.log(results);
+  return results;
+});
+
+// function getRealEstate() {
+//   const settings = {
+//     async: true,
+//     crossDomain: true,
+//     url: "https://zillowdimashirokovv1.p.rapidapi.com/GetSearchResults.htm",
+//     method: "POST",
+//     headers: {
+//       "x-rapidapi-host": "ZillowdimashirokovV1.p.rapidapi.com",
+//       "x-rapidapi-key": "67813d1ab1msh20677efa01c90afp193f66jsnc2e4e263c434",
+//       "content-type": "application/x-www-form-urlencoded"
+//     },
+//     data: {
+//       rentzestimate: [true, false],
+//       "zws-id": "<required>"
+//     }
+//   };
+//   $.ajax(settings).done(function (response) {
+//     console.log(response);
+//   });
+// }

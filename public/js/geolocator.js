@@ -16,5 +16,7 @@ console.warn(`ERROR(${err.code}): ${err.message}`);
 }
 
 //Prompts geolocator
-module.exports = navigator.geolocation.getCurrentPosition(success, error, options);
+var userlocation = navigator.geolocation.getCurrentPosition(success, error, options);
+
+module.exports = userlocation;
 

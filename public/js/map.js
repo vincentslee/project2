@@ -7,12 +7,12 @@ const apikey = 'AIzaSyAlmjkWFX6IotUYg3LV2IxwrQxjQvMMRYU';
 //Temporary array containing test locations
 var locationArray = [
     {
-        meta: "test",
+        name: "test",
         lat: -25.344,
         lng: 131.036
     },
     {
-        meta: "test2",
+        name: "test2",
         lat: -30.,
         lng: 140.
     }
@@ -26,7 +26,7 @@ function initMap() {
     
     //Creates map
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: locationArray[0]});
+        document.getElementById('map'), {zoom: 4, center: uluru});
 
     // Adds marker positioned at Uluru, for test purposes
     var marker = new google.maps.Marker({position: locationArray[0], map: map});

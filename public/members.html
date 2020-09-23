@@ -8,7 +8,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
 
-<script type="text/javascript" src="json/data.json"></script>
+  <script type="text/javascript" src="json/data.json"></script>
+
+  <!--For map-->
+  <style>
+    /* Set the size of the div element that contains the map */
+   #map {
+     height: 500px;  /* The height is 400 pixels */
+     width: 100%;  /* The width is the width of the web page */
+    }
+ </style>
 </head>
 
 <body>
@@ -76,7 +85,12 @@
   <!-- COLUMN 2 -->
   <div class="col-md-4">
 
-    <div id = "mapAPI" style="width:100%; "><p id="placeholder">Placeholder for Map API</p></div>
+    <div id = "map">
+    <!--The div element for the map -->
+      
+      
+    
+    </div>
     
     <div class = "card-group" style = "display: flex;">
     <div class="card" style="width:45%;margin-top: 5%;margin-right:10%; padding:5%; border:1px solid black; border-radius: 3px;">
@@ -142,6 +156,10 @@
     output4.innerHTML = this.value;
     }
     </script>
+    <!-- <script src="./js/geolocator.js"></script> -->
+    <script src="./js/map.js"></script>
+      
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlmjkWFX6IotUYg3LV2IxwrQxjQvMMRYU&callback=initMap"></script>
 </body>
 
 </html>

@@ -50,4 +50,9 @@ module.exports = function(app) {
       });
     }
   });
+  // app.get("/api/:city?", function(req,res) {
+  //   if(req.params.cities){
+  //     cities.findAll({})
+  //   }
+  // }
 };

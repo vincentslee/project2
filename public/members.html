@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
-
-<script type="text/javascript" src="json/data.json"></script>
 </head>
 
 <body>
@@ -16,7 +14,10 @@
   <div class="row container-fluid">
 
     <div class="col-md-4 navbar-header">
-      <p style="font-size:25px; margin-top: 20px;">Logged in as:<span class="member-name"></span></p>
+      <p style="font-size:25px; margin-top: 20px;">Logged in as: <span class="member-name"></span></p>
+      <p style="font-size:25px; margin-top: 20px;">Happiness: <span class="member-happiness"></span></p>
+      <p style="font-size:25px; margin-top: 20px;">Position: <span class="member-position"></span></p>
+      <p style="font-size:25px; margin-top: 20px;">State: <span class="member-state"></span></p>
     </div>
     
     <div class="col-md-4 navbar-header" style="text-align: center;">
@@ -80,26 +81,16 @@
     
     <div class = "card-group" style = "display: flex;">
     <div class="card" style="width:45%;margin-top: 5%;margin-right:10%; padding:5%; border:1px solid black; border-radius: 3px;">
-      <div class="card-body">
-        <h5 class="card-title">Happiest Countries on Earth</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Country Name</h6>
-        <p class="card-text">Some info about the country</p>
-        <h6 class="card-subtitle mb-2 text-muted">Country Name</h6>
-        <p class="card-text">Some info about the country</p>
-        <h6 class="card-subtitle mb-2 text-muted">Country Name</h6>
-        <p class="card-text">Some info about the country</p>
-      </div>
+      <h3>Top 3 Happiest countries on Earth</h3>
+      <table class="card-body" id="countryCard">
+       
+      </table>
     </div>
-    <div class="card" style="width:45%;width:50%; padding:5%; margin-top: 5%; border:1px solid black; border-radius: 3px;">
-      <div class="card-body">
-        <h5 class="card-title">Happiest Cities on Earth</h5>
-        <h6 class="card-subtitle mb-2 text-muted">City Name</h6>
-        <p class="card-text">Some info about the city</p>
-        <h6 class="card-subtitle mb-2 text-muted">City Name</h6>
-        <p class="card-text">Some info about the city</p>
-        <h6 class="card-subtitle mb-2 text-muted">City Name</h6>
-        <p class="card-text">Some info about the city</p>
-      </div>
+    <div class="card"  style="width:45%;width:50%; padding:5%; margin-top: 5%; border:1px solid black; border-radius: 3px;">
+      <h3>Top 3 Happiest cities on Earth</h3>
+      <table id="cityCard">
+      
+      </table>
     </div>
   </div>
 

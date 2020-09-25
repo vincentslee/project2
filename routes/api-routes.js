@@ -23,7 +23,7 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(() => {
-        res.redirect(307, "/api/login");
+        res.render("index");
       })
       .catch(err => {
         res.status(401).json(err);
@@ -53,6 +53,7 @@ module.exports = function(app) {
       });
     }
   });
+
   app.get("/api/city_data", (req, res) => {
     if (false) {
       res.json({});

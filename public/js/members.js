@@ -35,13 +35,10 @@ $(document).ready(() => {
       const cityInfo = document.createElement("div");
       console.log(data[i]);
       $(cityInfo).html(
-        ` <table>
-        <th>Top 3 Cities by Quality of Life</th>
-        <tr>
-          <td>City Name: ${data[i].city}</td>
+        `
+          <td>Country Name: ${data[i].country}</td>
           <td></td>
-        </tr>
-        </table>`
+        `
       );
       cityDiv.append(cityInfo);
     }

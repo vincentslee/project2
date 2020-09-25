@@ -54,12 +54,12 @@ module.exports = function(app) {
     }
   });
   app.get("/api/city_data", (req, res) => {
-    if (!req.user) {
+    if (false) {
       res.json({});
     } else {
       db.City.findAll({
         where: { id: [1, 2, 3] },
-        order: [["life_quality", "DESC"]]
+        order: [["lifeQuality", "DESC"]]
       }).then(result => {
         return res.json(result);
       });
@@ -67,7 +67,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/country_data", (req, res) => {
-    if (!req.user) {
+    if (false) {
       res.json({});
     } else {
       db.Country.findAll({

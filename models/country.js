@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-const Country = sequelize.define("Country", {
+  const Country = sequelize.define("Country", {
     Country: {
       type: DataTypes.STRING,
       allowNull: false
@@ -12,11 +12,11 @@ const Country = sequelize.define("Country", {
       type: DataTypes.DECIMAL,
       allowNull: false
     },
-    social_support:{
+    socialSupport:{
       type: DataTypes.DECIMAL,
       allowNull: false
     },
-    life_expectancy: {
+    lifeExpectancy: {
       type: DataTypes.DECIMAL,
       allowNull: false
     },
@@ -29,5 +29,5 @@ const Country = sequelize.define("Country", {
       allowNull: false
     }
   });
-  return City;
+  return Country;
 };

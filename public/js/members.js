@@ -1,52 +1,17 @@
+const locationForm = $("form.location");
+const stateInput = $("input#stateInput");
 /* eslint-disable no-unused-vars */
 /* eslint-disable eqeqeq */
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
-    $(".member-position").text(data.position);
-    $(".member-happiness").text(data.happiness);
-    $(".member-state").text(data.state);
     $(".member-name").text(data.email);
   });
-
-  $.get("/api/city_data").then(data => {
-    console.log(data);
-    const cityDiv = document.getElementById("cityCard");
-    $(cityDiv).empty();
-    for (let i = 0; i < 3; i++) {
-      const cityInfo = document.createElement("tr");
-      console.log(data[i]);
-      $(cityInfo).html(
-        `
-          <td>City Name: ${data[i].city}</td>
-          <td></td>
-        `
-      );
-      cityDiv.append(cityInfo);
-    }
-  });
-
-  $.get("/api/country_data").then(data => {
-    console.log(data);
-    const cityDiv = document.getElementById("countryCard");
-    $(cityDiv).empty();
-    for (let i = 0; i < 3; i++) {
-      const cityInfo = document.createElement("div");
-      console.log(data[i]);
-      $(cityInfo).html(
-        ` <table>
-        <th>Top 3 Cities by Quality of Life</th>
-        <tr>
-          <td>City Name: ${data[i].city}</td>
-          <td></td>
-        </tr>
-        </table>`
-      );
-      cityDiv.append(cityInfo);
-    }
-  });
 });
+ $.get("/api/user_data").then(data => {
+    $(".member-state").text(data.state);
+  });
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -227,9 +192,9 @@ const states = [
   "Wyoming"
 ];
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), states);
+autocomplete(document.getElementById("stateInput"), states);
 
-// const Zillow = require("node-zillow");
+// // const Zillow = require("node-zillow");
 
 // const zillow = new Zillow("");
 
@@ -243,6 +208,28 @@ autocomplete(document.getElementById("myInput"), states);
 //   console.log(results);
 //   return results;
 // });
+
+locationForm.on("submit", event => {
+  event.preventDefault();
+  const userData = {
+    state: stateInput.val().trim()
+    // happiness: passwordInput.val().trim()
+  };
+  $.post("/api/user_data", {
+    state: userData.state
+  }).then((user) => {
+    // function to pull data for state 
+    
+      stateInput.val("");
+      $(".member-state").text(user.state);
+  });
+});
+
+// Does a post to the signup route. If successful, we are redirected to the members page
+// Otherwise we log any errors
+function addState(state) {
+  console.log(state)
+}
 
 // function getRealEstate() {
 //   const settings = {

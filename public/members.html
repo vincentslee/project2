@@ -36,12 +36,12 @@
   <!-- COLUMN 1 -->
   <div class="col-md-4">
   <!--Make sure the form has the autocomplete function switched off:-->
-    <form autocomplete="off" action="#" style="margin-left:50px"> <!-- update action with reference to geo-locator -->
+    <form autocomplete="off" action="#" style="margin-left:50px" class="location"> <!-- update action with reference to geo-locator -->
       <button id = "myLocBtn"><img id="myLocImg" src="/assets/navVector.png"></button>
       <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myCountry" placeholder="Your City of Residence">
+        <input id="stateInput" type="text" name="myCountry" placeholder="Your City of Residence">
       </div>
-      <input type="submit">
+      <input type="submit" onclick="displayState()">
     </form>
     <div id = "questionaire" class = "row">
       <h3>How would you rate your...</h2>
@@ -136,5 +136,3 @@
 </body>
 
 </html>
-
-

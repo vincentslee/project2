@@ -30,6 +30,21 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/user_data", (req, res) => {
+    db.User.update({
+      state: req.body.state,
+      // happiness: req.body.happiness
+    }, {
+      where: {
+        id: 2
+      }
+    }).then(()=>{
+      db.User.findOne({where: {id: 2}}).then(user=>{
+        res.send(user)
+      })
+    })
+  })
+
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();

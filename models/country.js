@@ -29,5 +29,5 @@ const Country = sequelize.define("Country", {
       allowNull: false
     }
   });
-  return City;
+  return Country;
 };

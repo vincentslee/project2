@@ -46,13 +46,37 @@ module.exports = function(app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        happiness: req.user.happiness,
+        position: req.user.position,
+        state: req.user.state
       });
     }
   });
-  // app.get("/api/:city?", function(req,res) {
-  //   if(req.params.cities){
-  //     cities.findAll({})
-  //   }
-  // }
+  app.get("/api/city_data", (req, res) => {
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.City.findAll({
+        where: { id: [1, 2, 3] },
+        order: [["life_quality", "DESC"]]
+      }).then(result => {
+        return res.json(result);
+      });
+    }
+  });
+
+  app.get("/api/country_data", (req, res) => {
+    if (!req.user) {
+      res.json({});
+    } else {
+      db.Country.findAll({
+        where: {},
+        order: [["score", "DESC"]],
+        limit: 3
+      }).then(result => {
+        return res.json(result);
+      });
+    }
+  });
 };

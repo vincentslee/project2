@@ -4,10 +4,49 @@ $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(data => {
+    $(".member-position").text(data.position);
+    $(".member-happiness").text(data.happiness);
+    $(".member-state").text(data.state);
     $(".member-name").text(data.email);
   });
-});
 
+  $.get("/api/city_data").then(data => {
+    console.log(data);
+    const cityDiv = document.getElementById("cityCard");
+    $(cityDiv).empty();
+    for (let i = 0; i < 3; i++) {
+      const cityInfo = document.createElement("tr");
+      console.log(data[i]);
+      $(cityInfo).html(
+        `
+          <td>City Name: ${data[i].city}</td>
+          <td></td>
+        `
+      );
+      cityDiv.append(cityInfo);
+    }
+  });
+
+  $.get("/api/country_data").then(data => {
+    console.log(data);
+    const cityDiv = document.getElementById("countryCard");
+    $(cityDiv).empty();
+    for (let i = 0; i < 3; i++) {
+      const cityInfo = document.createElement("div");
+      console.log(data[i]);
+      $(cityInfo).html(
+        ` <table>
+        <th>Top 3 Cities by Quality of Life</th>
+        <tr>
+          <td>City Name: ${data[i].city}</td>
+          <td></td>
+        </tr>
+        </table>`
+      );
+      cityDiv.append(cityInfo);
+    }
+  });
+});
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -190,20 +229,20 @@ const states = [
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), states);
 
-const Zillow = require("node-zillow");
+// const Zillow = require("node-zillow");
 
-const zillow = new Zillow("");
+// const zillow = new Zillow("");
 
-const parameters = {
-  address: "2114 Bigelow Ave",
-  citystatezip: "Seattle, WA",
-  rentzestimate: false
-};
+// const parameters = {
+//   address: "2114 Bigelow Ave",
+//   citystatezip: "Seattle, WA",
+//   rentzestimate: false
+// };
 
-zillow.get("GetSearchResults", parameters).then(results => {
-  console.log(results);
-  return results;
-});
+// zillow.get("GetSearchResults", parameters).then(results => {
+//   console.log(results);
+//   return results;
+// });
 
 // function getRealEstate() {
 //   const settings = {

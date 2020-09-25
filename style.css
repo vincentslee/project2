@@ -1,0 +1,136 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: 16px Arial;  
+}
+.light{
+  background-color: #d4d4d4;
+}
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: hsl(210, 100%, 56%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #f1f1f1;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: rgb(31, 143, 255) !important; 
+  color: #ffffff; 
+}
+#myLocBtn {
+height:50px;
+background:none;
+border:none;
+}
+#myLocImg{
+height:40px;
+}
+#questionaire{
+  vertical-align: center;
+  width:550px;
+  height:765px;
+  align-content: center;
+  margin:auto;
+}
+.form-group{
+  height:125px;
+  width:492px;
+  border:1px solid black;
+  padding: 10px 10px 10px 10px;
+  vertical-align: center;
+  margin-top:5px;
+}
+.qLabel{
+ margin-top: 30px;
+}
+#mapAPI{
+  height:500px;
+  width:775px;
+  border:1px solid black;
+}
+#placeholder{
+  margin:auto;
+  text-align: center;
+}
+#zillow-large-search-box-widget-container{
+position:absolute;
+right: 5px;
+}
+/* FOR CUSTOM SLIDER */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: rgb(9, 37, 65);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgb(9, 37, 65);
+  cursor: pointer;
+}

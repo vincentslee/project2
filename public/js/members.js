@@ -17,6 +17,7 @@ $(document).ready(() => {
       const cityInfo = document.createElement("tr");
       console.log(data[i]);
       $(cityInfo).html(
+
         `<td><strong> ${data[i].city}: </strong></td>
         <td>${data[i].lifeQuality}</td>
         <td>${data[i].purchasingPower}</td>
@@ -27,7 +28,9 @@ $(document).ready(() => {
         <td>${data[i].traffic}</td>
         <td>${data[i].polution}</td>
         <td>${data[i].climate}</td>
+
         `
+        
       );
       cityDiv.append(cityInfo);
     }
@@ -49,6 +52,7 @@ $(document).ready(() => {
           <td> Freedom: ${data[i].freedom} </td>
           <td> Generosity: ${data[i].generosity} </td>
           <td> Corruption: ${data[i].corruption} </td>
+
         `
       );
       cityDiv.append(cityInfo);

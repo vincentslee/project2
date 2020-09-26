@@ -9,6 +9,7 @@ $(document).ready(() => {
     $(".member-state").text(data.state);
     $(".member-name").text(data.email);
   });
+<<<<<<< HEAD
 });
 $.get("/api/city_data").then(data => {
   console.log(data);
@@ -18,6 +19,18 @@ $.get("/api/city_data").then(data => {
     console.log(data[i]);
     $(cityInfo).html(
       `<td><strong> ${data[i].city}: </strong></td>
+=======
+
+  $.get("/api/city_data").then(data => {
+    console.log(data);
+    const cityDiv = document.getElementById("cityCard");
+    for (let i = 0; i < 3; i++) {
+      const cityInfo = document.createElement("tr");
+      console.log(data[i]);
+      $(cityInfo).html(
+
+        `<td><strong> ${data[i].city}: </strong></td>
+>>>>>>> master
         <td>${data[i].lifeQuality}</td>
         <td>${data[i].purchasingPower}</td>
         <td>${data[i].safety}</td>
@@ -27,7 +40,9 @@ $.get("/api/city_data").then(data => {
         <td>${data[i].traffic}</td>
         <td>${data[i].polution}</td>
         <td>${data[i].climate}</td>
+
         `
+<<<<<<< HEAD
     );
     cityDiv.append(cityInfo);
   }
@@ -53,6 +68,36 @@ $.get("/api/country_data").then(data => {
     );
     cityDiv.append(cityInfo);
   }
+=======
+        
+      );
+      cityDiv.append(cityInfo);
+    }
+  });
+
+  $.get("/api/country_data").then(data => {
+    console.log(data);
+    const cityDiv = document.getElementById("countryCard");
+    for (let i = 0; i < 3; i++) {
+      const cityInfo = document.createElement("tr");
+      console.log(data[i]);
+      $(cityInfo).html(
+        `
+          <td><strong> ${data[i].country}: </strong> </td>
+          <td> Score: ${data[i].score} </td>
+          <td> GDP: ${data[i].gdp} </td>
+          <td> Social Support: ${data[i].socialSupport} </td>
+          <td> Life Expectancy: ${data[i].lifeExpectancy} </td>
+          <td> Freedom: ${data[i].freedom} </td>
+          <td> Generosity: ${data[i].generosity} </td>
+          <td> Corruption: ${data[i].corruption} </td>
+
+        `
+      );
+      cityDiv.append(cityInfo);
+    }
+  });
+>>>>>>> master
 });
 
 function autocomplete(inp, arr) {

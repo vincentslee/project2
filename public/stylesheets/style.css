@@ -8,9 +8,11 @@ form.login {
 
 body {
   font: 16px Arial;  
+  background-color:#b0bbdb;
 }
-.light{
-  background-color: #d4d4d4;
+.navbar{
+  background-color: #AED1D6;
+  color:#314570;
 }
 /*the container must be positioned relative:*/
 .autocomplete {
@@ -76,7 +78,7 @@ height:40px;
 #questionaire{
   vertical-align: center;
   width:550px;
-  height:765px;
+  height:500px;
   align-content: center;
   margin:auto;
 }
@@ -130,6 +132,38 @@ right: 5px;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: dodgerblue
+  background: dodgerblue;
   cursor: pointer;
 }
+#cityCard th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#314570;
+  color: #c09481;
+  padding:10px;
+  text-align:center;
+  border:solid black 1px;
+}
+#countryCard th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#314570;
+  color: #c09481;
+  padding:10px;
+  text-align:center;
+  border:solid black 1px;
+}
+td {
+  border:solid #314570 1px;
+  background-color: #AED1D6;
+  color: #314570;
+  text-align:center;
+  padding: 5px;
+}
+tr {
+  height:20px;
+}
+
+

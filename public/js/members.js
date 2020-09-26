@@ -13,23 +13,24 @@ $(document).ready(() => {
   $.get("/api/city_data").then(data => {
     console.log(data);
     const cityDiv = document.getElementById("cityCard");
-    $(cityDiv).empty();
     for (let i = 0; i < 3; i++) {
       const cityInfo = document.createElement("tr");
       console.log(data[i]);
       $(cityInfo).html(
+
+        `<td><strong> ${data[i].city}: </strong></td>
+        <td>${data[i].lifeQuality}</td>
+        <td>${data[i].purchasingPower}</td>
+        <td>${data[i].safety}</td>
+        <td>${data[i].healthCare}</td>
+        <td>${data[i].livingCost}</td>
+        <td>${data[i].propToIncomeRatio}</td>
+        <td>${data[i].traffic}</td>
+        <td>${data[i].polution}</td>
+        <td>${data[i].climate}</td>
+
         `
-          <td>${data[i].city}</td>
-          <td>${data[i].lifeQuality}</td>
-          <td>${data[i].purchasingPower}</td>
-          <td>${data[i].safety}</td>
-          <td>${data[i].healthCare}</td>
-          <td>${data[i].livingCost}</td>
-          <td>${data[i].propToIncomeRatio}</td>
-          <td>${data[i].traffic}</td>
-          <td>${data[i].polution}</td>
-          <td>${data[i].climate}</td>
-        `
+        
       );
       cityDiv.append(cityInfo);
     }
@@ -38,19 +39,20 @@ $(document).ready(() => {
   $.get("/api/country_data").then(data => {
     console.log(data);
     const cityDiv = document.getElementById("countryCard");
-    $(cityDiv).empty();
     for (let i = 0; i < 3; i++) {
-      const cityInfo = document.createElement("div");
+      const cityInfo = document.createElement("tr");
       console.log(data[i]);
       $(cityInfo).html(
         `
-          <td>${data[i].country}</td>
-          <td>${data[i].score}</td>
-          <td>${data[i].gdp}</td>
-          <td>${data[i].socialSupport}</td>
-          <td>${data[i].lifeExpectancy}</td>
-          <td>${data[i].freedom}</td>
-          <td>${data[i].generosity}</td>
+          <td><strong> ${data[i].country}: </strong> </td>
+          <td> Score: ${data[i].score} </td>
+          <td> GDP: ${data[i].gdp} </td>
+          <td> Social Support: ${data[i].socialSupport} </td>
+          <td> Life Expectancy: ${data[i].lifeExpectancy} </td>
+          <td> Freedom: ${data[i].freedom} </td>
+          <td> Generosity: ${data[i].generosity} </td>
+          <td> Corruption: ${data[i].corruption} </td>
+
         `
       );
       cityDiv.append(cityInfo);

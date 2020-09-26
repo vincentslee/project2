@@ -80,4 +80,22 @@ module.exports = function(app) {
       });
     }
   });
+
+  app.post("/api/geolocate", (req, res) => {
+    if (false) {
+      res.json({});
+    } else {
+      db.User.update(
+        {
+          position: {
+            lat: req.body.lat,
+            long: req.body.long
+          }
+        },
+        {
+          where: { id: req.user.id }
+        }
+      ).then(() => res.render("index"));
+    }
+  });
 };

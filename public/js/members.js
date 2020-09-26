@@ -19,8 +19,16 @@ $(document).ready(() => {
       console.log(data[i]);
       $(cityInfo).html(
         `
-          <td>City Name: ${data[i].city}</td>
-          <td></td>
+          <td>${data[i].city}</td>
+          <td>${data[i].lifeQuality}</td>
+          <td>${data[i].purchasingPower}</td>
+          <td>${data[i].safety}</td>
+          <td>${data[i].healthCare}</td>
+          <td>${data[i].livingCost}</td>
+          <td>${data[i].propToIncomeRatio}</td>
+          <td>${data[i].traffic}</td>
+          <td>${data[i].polution}</td>
+          <td>${data[i].climate}</td>
         `
       );
       cityDiv.append(cityInfo);
@@ -36,8 +44,13 @@ $(document).ready(() => {
       console.log(data[i]);
       $(cityInfo).html(
         `
-          <td>Country Name: ${data[i].country}</td>
-          <td></td>
+          <td>${data[i].country}</td>
+          <td>${data[i].score}</td>
+          <td>${data[i].gdp}</td>
+          <td>${data[i].socialSupport}</td>
+          <td>${data[i].lifeExpectancy}</td>
+          <td>${data[i].freedom}</td>
+          <td>${data[i].generosity}</td>
         `
       );
       cityDiv.append(cityInfo);

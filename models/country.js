@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
     generosity: {
       type: DataTypes.DECIMAL,
       allowNull: false
+    },
+    corruption: {
+      type: DataTypes.DECIMAL,
+      allowNull: false
     }
   });
   return Country;

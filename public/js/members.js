@@ -9,16 +9,15 @@ $(document).ready(() => {
     $(".member-state").text(data.state);
     $(".member-name").text(data.email);
   });
-
-  $.get("/api/city_data").then(data => {
-    console.log(data);
-    const cityDiv = document.getElementById("cityCard");
-    for (let i = 0; i < 3; i++) {
-      const cityInfo = document.createElement("tr");
-      console.log(data[i]);
-      $(cityInfo).html(
-
-        `<td><strong> ${data[i].city}: </strong></td>
+});
+$.get("/api/city_data").then(data => {
+  console.log(data);
+  const cityDiv = document.getElementById("cityCard");
+  for (let i = 0; i < 3; i++) {
+    const cityInfo = document.createElement("tr");
+    console.log(data[i]);
+    $(cityInfo).html(
+      `<td><strong> ${data[i].city}: </strong></td>
         <td>${data[i].lifeQuality}</td>
         <td>${data[i].purchasingPower}</td>
         <td>${data[i].safety}</td>
@@ -30,35 +29,33 @@ $(document).ready(() => {
         <td>${data[i].climate}</td>
 
         `
-        
-      );
-      cityDiv.append(cityInfo);
-    }
-  });
-
-  $.get("/api/country_data").then(data => {
-    console.log(data);
-    const cityDiv = document.getElementById("countryCard");
-    for (let i = 0; i < 3; i++) {
-      const cityInfo = document.createElement("tr");
-      console.log(data[i]);
-      $(cityInfo).html(
-        `
-          <td><strong> ${data[i].country}: </strong> </td>
-          <td> Score: ${data[i].score} </td>
-          <td> GDP: ${data[i].gdp} </td>
-          <td> Social Support: ${data[i].socialSupport} </td>
-          <td> Life Expectancy: ${data[i].lifeExpectancy} </td>
-          <td> Freedom: ${data[i].freedom} </td>
-          <td> Generosity: ${data[i].generosity} </td>
-          <td> Corruption: ${data[i].corruption} </td>
-
-        `
-      );
-      cityDiv.append(cityInfo);
-    }
-  });
+    );
+    cityDiv.append(cityInfo);
+  }
 });
+
+$.get("/api/country_data").then(data => {
+  console.log(data);
+  const cityDiv = document.getElementById("countryCard");
+  for (let i = 0; i < 3; i++) {
+    const cityInfo = document.createElement("tr");
+    console.log(data[i]);
+    $(cityInfo).html(
+      `
+        <td><strong> ${data[i].country}: </strong> </td>
+        <td> ${data[i].score} </td>
+        <td> ${data[i].gdp} </td>
+        <td> ${data[i].socialSupport} </td>
+        <td> ${data[i].lifeExpectancy} </td>
+        <td> ${data[i].freedom} </td>
+        <td> ${data[i].generosity} </td>
+        <td> ${data[i].corruption} </td>
+      `
+    );
+    cityDiv.append(cityInfo);
+  }
+});
+
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -241,38 +238,25 @@ const states = [
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("myInput"), states);
 
-// const Zillow = require("node-zillow");
+document.getElementById(submitUserData);
 
-// const zillow = new Zillow("");
+submitUserInfo.on("click", event => {
+  event.preventDefault();
+  const userInfo = {
+    lat: emailInput.val().trim(),
+    long: passwordInput.val().trim()
+  };
+  updateUser(userInfo.lat, userInfo.long);
+});
 
-// const parameters = {
-//   address: "2114 Bigelow Ave",
-//   citystatezip: "Seattle, WA",
-//   rentzestimate: false
-// };
-
-// zillow.get("GetSearchResults", parameters).then(results => {
-//   console.log(results);
-//   return results;
-// });
-
-// function getRealEstate() {
-//   const settings = {
-//     async: true,
-//     crossDomain: true,
-//     url: "https://zillowdimashirokovv1.p.rapidapi.com/GetSearchResults.htm",
-//     method: "POST",
-//     headers: {
-//       "x-rapidapi-host": "ZillowdimashirokovV1.p.rapidapi.com",
-//       "x-rapidapi-key": "67813d1ab1msh20677efa01c90afp193f66jsnc2e4e263c434",
-//       "content-type": "application/x-www-form-urlencoded"
-//     },
-//     data: {
-//       rentzestimate: [true, false],
-//       "zws-id": "<required>"
-//     }
-//   };
-//   $.ajax(settings).done(function (response) {
-//     console.log(response);
-//   });
-// }
+function updateUser(lat, long) {
+  $.post("/api/geolocate", {
+    lat: lat,
+    long: long
+  })
+    .then(() => {
+      window.location.replace("/members");
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })
+    .catch(err);
+}
